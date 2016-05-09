@@ -1,0 +1,61 @@
+body{
+    background-color: #fff;
+    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc5JyBoZWlnaHQ9JzE4JyB2aWV3Qm94PScwIDAgMjAgNDAnPgoJPGNpcmNsZSBjeD0nMTAnIGN5PSczMCcgcj0nNy41JyBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nI2VlZScgc3Ryb2tlLXdpZHRoPSczJy8+Cgk8Y2lyY2xlIGN4PScxMCcgY3k9JzMwJyByPScyLjUnIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjZWVlJyBzdHJva2Utd2lkdGg9JzMnLz4KCTxyZWN0IHg9JzAnIHk9JzAnIHdpZHRoPScyMCcgaGVpZ2h0PSczMCcgZmlsbD0nI2ZmZicvPgoJPGNpcmNsZSBjeD0nMCcgY3k9JzEwJyByPSc3LjUnIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjZWVlJyBzdHJva2Utd2lkdGg9JzMnLz4KCTxjaXJjbGUgY3g9JzAnIGN5PScxMCcgcj0nMi41JyBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nI2VlZScgc3Ryb2tlLXdpZHRoPSczJy8+Cgk8Y2lyY2xlIGN4PScyMCcgY3k9JzEwJyByPSc3LjUnIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjZWVlJyBzdHJva2Utd2lkdGg9JzMnLz4KCTxjaXJjbGUgY3g9JzIwJyBjeT0nMTAnIHI9JzIuNScgZmlsbC1vcGFjaXR5PScwJyBzdHJva2U9JyNlZWUnIHN0cm9rZS13aWR0aD0nMycvPgoJPHJlY3QgeD0nMCcgeT0nMTAnIHdpZHRoPSc0MCcgaGVpZ2h0PScxMCcgZmlsbD0nI2ZmZicvPgoJPGxpbmUgeDE9JzIuNScgeTE9JzEwJyB4Mj0nMi41JyB5Mj0nMzAnIHN0cm9rZT0nI2VlZScgc3Ryb2tlLXdpZHRoPSczJy8+Cgk8bGluZSB4MT0nNy41JyB5MT0nMTAnIHgyPSc3LjUnIHkyPSczMCcgc3Ryb2tlPScjZWVlJyBzdHJva2Utd2lkdGg9JzMnLz4KCTxsaW5lIHgxPScxMi41JyB5MT0nMTAnIHgyPScxMi41JyB5Mj0nMzAnIHN0cm9rZT0nI2VlZScgc3Ryb2tlLXdpZHRoPSczJy8+Cgk8bGluZSB4MT0nMTcuNScgeTE9JzEwJyB4Mj0nMTcuNScgeTI9JzMwJyBzdHJva2U9JyNlZWUnIHN0cm9rZS13aWR0aD0nMycvPgo8L3N2Zz4=);
+}
+
+.well, .panel, .jumbotron {
+    margin-top: 50px;
+    clear: both;
+}
+
+.jumbotron h1 {
+    text-shadow: 2px 2px 3px #000;
+}
+
+.btn-twitter {
+    background-color: #4099FF;
+    color: #fff;
+}
+
+.btn-twitter:hover {
+    background-color: #3989e5;
+}
+
+.panel-heading {
+    font-size: 3em;
+}
+
+form input, form textarea, form button {
+    margin: 5px;
+}
+
+.pin-image {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    display: block;
+}
+
+.grid {
+    clear: both;
+    margin: 0 auto;
+}
+
+.grid-item {
+    width: 180px;
+}
+
+.grid-item img {
+  width: 160px;
+  margin: 5px;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.delete-button {
+    display: inline;
+}
+
+button.btn.btn-lg.btn-default {
+    margin: 0;
+}

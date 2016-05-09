@@ -1,0 +1,52 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Pinterest Clone</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <% if (user === undefined) { %>
+                <button class="btn navbar-btn btn-twitter" onclick="window.signin();"><i class="fa fa-twitter"></i> Log In</button>
+            <% } else { %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user.displayName %><i class="fa fa-caret-down"></i></i></a>
+                  <ul class="dropdown-menu">
+                  <li><a href="/users/<%=user.displayName %>">Profile</a></li>
+                  <li><a href="/boards/new">Create Board</a></li>
+                  </ul>
+                </li>
+            <% } %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<script src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+<script type="text/javascript">
+  
+  var lock = new Auth0Lock('SxtNJGuShwfG4sL3Q3D5cvGjwEiPSrfh', 'nightlife-coordinator.auth0.com');
+  
+  
+  function signin() {
+    lock.show({
+        callbackURL: 'http://sleepy-fortress-1709.herokuapp.com/callback'
+      , responseType: 'code'
+      , authParams: {
+        scope: 'openid profile'
+      }
+    });
+  }
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ../partials/head.ejs %>
+</head>
+
+
+<body>
+  <header>
+    <%- include ../partials/header.ejs %>
+  </header>
+  
+  <div class="container">
+    <div class="jumbotron">
+      <h1>All Pins</h1>
+    </div>
+    <% if (pins.length > 0) { %>
+      <div class="grid">
+        <% pins.forEach(function(pin) { %>
+          <div class="grid-item">
+            <a href="/pins/<%= pin.id %>"><img src="<%= pin.image %>" onerror="this.src='/img/galaxy.jpg'"></a>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      There are no pins yet.
+    <% } %>
+  </div>
+  
+  
+  <script>
+    $(document).ready( function() {
+
+      
+      // init Masonry
+      var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 180
+      });
+      // layout Masonry after each image loads
+      $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+      });
+    });
+  </script>
+  
+</body>
+
+</html>

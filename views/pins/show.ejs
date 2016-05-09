@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ../partials/head.ejs %>
+</head>
+
+
+<body>
+  <header>
+    <%- include ../partials/header.ejs %>
+  </header>
+  
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <%= pin.title %>
+        <% if (user !== undefined) { %>
+          <% if (user.displayName === pin.pinnedBy) { %>
+            <a class="btn btn-lg btn-primary" href="/pins/<%= pin._id %>/edit"><i class="fa fa-pencil"></i></a>
+            <form action="/pins/<%= pin.id %>/edit" method="post" enctype='application/x-www-form-urlencoded' class="delete-button">
+              <input type="hidden" value="DELETE" name="_method">
+              <button type="submit" class="btn btn-lg btn-default"><i class="fa fa-trash"></i></button>
+            </form>
+          <% } %>
+        <% } %>
+      </div>
+      <div class="panel-body">
+        <img src="<%= pin.image %>" class="pin-image" onerror="this.src='/img/galaxy.jpg'">
+        <br>
+        Pinned By: <a href="/users/<%= pin.pinnedBy %>"><%= pin.pinnedBy %></a>
+        <br>
+        <% if (pin.source !== "") { %>
+          Source: <%= pin.source %>
+          <br>
+        <% } %>
+        <% if (pin.description !== "") { %>
+          Description: <%= pin.description %>
+          <br>
+        <% } %>
+        Board: <a href="/boards/<%= board._id %>"><%= board.boardName %></a>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+</body>
+
+</html>

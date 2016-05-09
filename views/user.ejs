@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ./partials/head.ejs %>
+</head>
+
+
+<body>
+  <header>
+    <%- include ./partials/header.ejs %>
+  </header>
+  
+  <div class="container">
+    <div class="jumbotron">
+      <h1><%= userDisplay %></h1>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Boards Created by <%= userDisplay %></div>
+      <div class="panel-body">
+        <% if (boards.length > 0) { %>
+          <% boards.forEach(function(board){ %>
+              <h3><a href="/boards/<%= board.id %>"><%= board.boardName %></a></h3>
+          <% }); %>
+        <% } else { %>
+          <%= userDisplay %> hasn't created any boards.
+        <% } %>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+    $(document).ready( function() {
+      $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 160
+      });
+      
+    });
+  </script>
+  
+</body>
+
+</html>

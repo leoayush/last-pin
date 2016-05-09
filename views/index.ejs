@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ./partials/head.ejs %>
+</head>
+
+
+<body>
+  <header>
+    <%- include ./partials/header.ejs %>
+  </header>
+  
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Welcome to Pinterest Clone!</h1>
+      <h3>Made by Ayush Jha to complete a <a href="http://www.freecodecamp.com/challenges/basejump-build-a-pinterest-clone" target="_blank">Free Code Camp Basejump</a>.</h3>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">Boards</div>
+      <div class="panel-body">
+        <% if (boards.length > 0) { %>
+          <% boards.forEach(function(board) { %>
+            <h3><a href="/boards/<%= board.id %>"><%= board.boardName %></a></h3>
+          <% }); %>
+        <% } else { %>
+          There are no boards yet.
+        <% } %>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+</body>
+
+</html>

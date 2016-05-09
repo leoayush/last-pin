@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ../partials/head.ejs %>
+</head>
+
+
+<body>
+  <header>
+    <%- include ../partials/header.ejs %>
+  </header>
+  
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <%= board.boardName %>
+        <% if (user !== undefined) { %>
+          <% if (board.createdBy === user.displayName) { %>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target=".modal"><i class="fa fa-thumb-tack"></i></button>
+            <a class="btn btn-lg btn-primary" href="/boards/<%= board._id %>/edit"><i class="fa fa-pencil"></i></a>
+            <form action="/boards/<%= board.id %>/edit" method="post" enctype='application/x-www-form-urlencoded' class="delete-button">
+              <input type="hidden" value="DELETE" name="_method">
+              <button type="submit" class="btn btn-lg btn-default"><i class="fa fa-trash"></i></button>
+            </form>
+          <% } %>
+        <% } %>
+        </div>
+        <div class="panel-body">
+          By: <a href="/users/<%= board.createdBy %>"><%= board.createdBy %></a>
+          <br>
+          Description: <%= board.boardDescription %>
+        </div>
+      </div>
+      
+      <% if (pins.length > 0) { %>
+        <div class="grid">
+          <% pins.forEach(function(pin){ %>
+            <div class="grid-item">
+              <a href="/pins/<%= pin.id %>"><img src="<%= pin.image %>" onerror="this.src='/img/galaxy.jpg'"></a>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        There are no pins yet!
+      <% } %>
+    </div>
+  </div>
+          
+  <div class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+          <h4 class="modal-title">Create New Pin for <%= board.boardName %></h4>
+        </div>
+        <div class="modal-body">
+          <form name="addPin" method="post" action="/pins">
+            <input type="text" name="title" placeholder="Title" class="form-control" required>
+            <input type="text" name="image" placeholder="Image" class="form-control">
+            <input type="text" name="source" placeholder="Source of Image" class="form-control">
+            <textarea rows="3" name="description" placeholder="Why do you want to pin this?" class="form-control" ></textarea>
+            <button type="submit" class="btn btn-info btn-md">Pin It</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <script>
+    $(document).ready( function() {
+
+      
+      // init Masonry
+      var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 180
+      });
+      // layout Masonry after each image loads
+      $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+      });
+    });
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ../partials/head.ejs %>
+</head>
+
+
+<body>
+  <header>
+    <%- include ../partials/header.ejs %>
+  </header>
+  
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">Create a New Board</div>
+      <div class="panel-body">
+        <form name="addBoard" method="post" action="/boards">
+          <input type="text" name="boardName" placeholder="Name" class="form-control">
+          <input type="text" name="boardDescription" placeholder="Description" class="form-control">
+          <button type="submit" class="btn btn-info btn-lg">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+</body>
+
+</html>
